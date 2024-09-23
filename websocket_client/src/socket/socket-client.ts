@@ -18,6 +18,10 @@ constructor() {
     private regEvents() {
         this.socketClient.on('connect', () => {
             console.log('Connected to Gateway!');
+
+            this.socketClient.emit('newMessage', {
+                msg: 'hey, Am newbie!'
+            })
          });
 
          this.socketClient.on('onMessage', (data: any) => {
